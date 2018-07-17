@@ -1,0 +1,160 @@
+{
+  "$id": "http://example.com/example.json",
+  "type": "object",
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "additionalProperties": false,
+  "required": [
+    "status",
+    "type",
+    "document",
+    "parts",
+    "visit",
+    "state",
+    "index"
+  ],
+  "properties": {
+    "bond": {
+      "$id": "/properties/bond",
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "title": "The bond schema",
+      "example": [
+        "/logisfamilialvarois/ouvrage/la-valette-du-var-le-grand-jardin/construction/332402.json",
+        "/logisfamilialvarois/ouvrage/toulon-le-myrella/construction/336102.json"
+      ]
+    },
+
+    "comment": {
+      "$id": "/properties/comment",
+      "type": "string",
+      "title": "Commentaire",
+      "examples": ["comment"]
+    },
+
+    "doc": {
+      "$id": "/properties/doc",
+      "type": "string",
+      "title": "The Date of creation Schema ",
+      "examples": ["2018-02-09T09:39:20.187183018Z"]
+    },
+
+    "document": {
+      "$id": "/properties/document",
+      "type": "array",
+      "items": {
+        "type": "string",
+        "default": ""
+      },
+      "title": "Document visé",
+      "example": ["/lib-cdn/document_1.json", "/lib-cdn/document_2.json"]
+    },
+
+    "doe": {
+      "$id": "/properties/doe",
+      "type": "string",
+      "title": "The Date of edition Schema ",
+      "examples": ["2018-02-09T09:39:20.187183018Z"]
+    },
+
+    "entity": {
+      "$id": "/properties/entity",
+      "type": "string",
+      "title": "Corps d'état (conditionnel)",
+      "default": "",
+      "examples": ["Plomberie", "Peinture", "Menuiserie"]
+    },
+
+    "index": {
+      "$id": "/properties/id",
+      "type": "integer",
+      "title": "Indice",
+      "default": 0,
+      "example": [0, 1, 2]
+    },
+
+    "locked": {
+      "$id": "/properties/locked",
+      "type": "boolean",
+      "title": "Avis bloqué ?",
+      "example": [true, false]
+    },
+
+    "name": {
+      "$id": "/properties/name",
+      "type": "string",
+      "title": "The Name Schema ",
+      "examples": ["API_A_AVIS_0123456789", "bob"]
+    },
+
+    "parts": {
+      "$id": "/properties/parts",
+      "type": "string",
+      "title": "Point visé par le document",
+      "default": "",
+      "examples": ["partNameOfReport"]
+    },
+
+    "rel": {
+      "$id": "/properties/rel",
+      "type": "object",
+      "properties": {
+        "owner": {
+          "type": "string",
+          "pattern": "^(/)(([a-zA-z0-9_-]+(/?))*)*(.json)*$"
+        },
+        "ouvrage": {
+          "type": "string",
+          "pattern": "^(/)(([a-zA-z0-9_-]+(/?))*)*(.json)*$"
+        },
+        "mission": {
+          "type": "string",
+          "pattern": "^(/)(([a-zA-z0-9_-]+(/?))*)*(.json)*$"
+        }
+      },
+      "title": "The rel schema",
+      "description": "Relation of the notice",
+      "example": [
+        "/logisfamilialvarois/ouvrage/la-valette-du-var-le-grand-jardin.json"
+      ]
+    },
+
+    "self": {
+      "type": "string"
+    },
+
+    "state": {
+      "$id": "/properties/state",
+      "type": "string",
+      "title": "Etat",
+      "default": "",
+      "enum": ["pending", "exported", "diffused"],
+      "examples": ["pending", "exported", "diffused"]
+    },
+
+    "status": {
+      "$id": "/properties/status",
+      "type": "string",
+      "title": "Status",
+      "enum": ["F", "D", "S", "SO", "HM"],
+      "examples": ["F", "D", "S", "SO", "HM"]
+    },
+
+    "type": {
+      "$id": "/properties/type",
+      "type": "string",
+      "title": "Type",
+      "enum": ["doc", "visit", "report"],
+      "examples": ["doc", "visit", "report"]
+    },
+
+    "visit": {
+      "$id": "/properties/visit",
+      "type": "string",
+      "title": "Date de la visite (conditionnel)",
+      "examples": ["2018-02-09T09:39:20.187183018Z"]
+    }
+  }
+}

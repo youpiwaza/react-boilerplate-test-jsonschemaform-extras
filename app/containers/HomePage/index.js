@@ -1,10 +1,17 @@
 /*
- * HomePage
- *
- * This is the first thing users see of our App, at the '/' route
- */
+* HomePage
+*
+* This is the first thing users see of our App, at the '/' route
+* Défault example : https://github.com/mozilla-services/react-jsonschema-form
+*/
 
+// Imports for json schema form
 import React from 'react';
+import Form from 'react-jsonschema-form';
+
+// import noticeSchema from 'jsonSchemas/noticeSchema.json';
+// import noticeUiSchema from 'jsonSchemas/noticeUiSchema.json';
+
 import PropTypes from 'prop-types';
 import { Helmet } from 'react-helmet';
 import { FormattedMessage } from 'react-intl';
@@ -20,11 +27,7 @@ import {
   makeSelectError,
 } from 'containers/App/selectors';
 import H2 from 'components/H2';
-import ReposList from 'components/ReposList';
-import AtPrefix from './AtPrefix';
 import CenteredSection from './CenteredSection';
-import Form from './Form';
-import Input from './Input';
 import Section from './Section';
 import messages from './messages';
 import { loadRepos } from '../App/actions';
@@ -33,25 +36,52 @@ import { makeSelectUsername } from './selectors';
 import reducer from './reducer';
 import saga from './saga';
 
+// Défault example form
+// const schema = {
+//   title: 'Todo',
+//   type: 'object',
+//   required: ['title'],
+//   properties: {
+//     title: { type: 'string', title: 'Title', default: 'A new task' },
+//     done: { type: 'boolean', title: 'Done?', default: false },
+//   },
+// };
+
+const conditionnalSchema = {
+  type: 'object',
+
+  properties: {
+    name: { type: 'string' },
+    credit_card: { type: 'number' },
+  },
+
+  required: ['name'],
+
+  dependencies: {
+    credit_card: {
+      properties: {
+        billing_address: { type: 'string' },
+      },
+      required: ['billing_address'],
+    },
+  },
+};
+
+const log = type => console.log.bind(console, type);
+
 /* eslint-disable react/prefer-stateless-function */
 export class HomePage extends React.PureComponent {
-  /**
-   * when initial state username is not null, submit the form to load repos
-   */
   componentDidMount() {
     if (this.props.username && this.props.username.trim().length > 0) {
       this.props.onSubmitForm();
     }
   }
 
-  render() {
-    const { loading, error, repos } = this.props;
-    const reposListProps = {
-      loading,
-      error,
-      repos,
-    };
+  // schema={schema}
 
+  // schema={noticeSchema}
+  // uiSchema={noticeUiSchema}
+  render() {
     return (
       <article>
         <Helmet>
@@ -71,25 +101,13 @@ export class HomePage extends React.PureComponent {
             </p>
           </CenteredSection>
           <Section>
-            <H2>
-              <FormattedMessage {...messages.trymeHeader} />
-            </H2>
-            <Form onSubmit={this.props.onSubmitForm}>
-              <label htmlFor="username">
-                <FormattedMessage {...messages.trymeMessage} />
-                <AtPrefix>
-                  <FormattedMessage {...messages.trymeAtPrefix} />
-                </AtPrefix>
-                <Input
-                  id="username"
-                  type="text"
-                  placeholder="mxstbr"
-                  value={this.props.username}
-                  onChange={this.props.onChangeUsername}
-                />
-              </label>
-            </Form>
-            <ReposList {...reposListProps} />
+            <H2>Test Json schema form</H2>
+            <Form
+              schema={conditionnalSchema}
+              onChange={log('changed')}
+              onSubmit={log('submitted')}
+              onError={log('errors')}
+            />
           </Section>
         </div>
       </article>

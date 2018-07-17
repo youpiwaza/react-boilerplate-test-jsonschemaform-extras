@@ -1,0 +1,90 @@
+{
+  "bond": {
+    "classNames": "hidden",
+    "items": {
+      "ui:widget": "hidden"
+    }
+  },
+
+  "comment": {
+    "ui:label": "Commentaire",
+    "ui:title": "Commentaire",
+    "ui:widget": "textarea"
+  },
+
+  "doc": {
+    "ui:widget": "hidden"
+  },
+
+  "document": {
+    "ui:label": "Document (conditionnel)",
+    "ui:title": "Document (conditionnel)"
+  },
+
+  "doe": {
+    "ui:widget": "hidden"
+  },
+
+  "entity": {
+    "ui:title": "Corps d'état (conditionnel)",
+    "ui:label": "Corps d'état (conditionnel)"
+  },
+
+  "index": {
+    "ui:title": "Indice",
+    "ui:label": "Indice"
+  },
+
+  "locked": {
+    "ui:label": "Avis bloqué ? ",
+    "ui:title": "Avis bloqué ? "
+  },
+
+  "name": {
+    "ui:widget": "hidden"
+  },
+
+  "parts": {
+    "ui:title": "Point visé dans le document",
+    "ui:label": "Point visé dans le document",
+    "ui:widget": "textarea"
+  },
+
+  "rel": {
+    "classNames": "hidden",
+    "owner": {
+      "ui:widget": "hidden"
+    },
+    "ouvrage": {
+      "ui:widget": "hidden"
+    },
+    "mission": {
+      "ui:widget": "hidden"
+    }
+  },
+
+  "self": {
+    "ui:widget": "hidden"
+  },
+
+  "state": {
+    "ui:label": "Etat",
+    "ui:title": "Etat"
+  },
+
+  "status": {
+    "ui:label": "Status",
+    "ui:title": "Status"
+  },
+
+  "type": {
+    "ui:label": "Type",
+    "ui:title": "Type"
+  },
+
+  "visit": {
+    "ui:label": "Date de la visite (conditionnel)",
+    "ui:title": "Date de la visite (conditionnel)",
+    "ui:widget": "alt-datetime"
+  }
+}
